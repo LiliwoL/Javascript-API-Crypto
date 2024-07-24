@@ -21,6 +21,14 @@ function callAPI( endpoint ) {
         })
         .then(data => {
             console.log(data);
+
+            // Cas de la liste des cryptos
+            // Cas du prix de l'ethereum
+            if (data.ethereum !== undefined) {
+                console.log("Prix Ethereum: " + data.ethereum.eur);
+                document.getElementById("ether-rate").innerHTML = data.ethereum.eur + " €";
+            }
+
         })
         .catch(error => {
             console.log("Erreur de récupération API " + error);
